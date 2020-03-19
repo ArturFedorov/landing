@@ -1,9 +1,7 @@
 <template>
   <div class="home">
-    <SvgIcon name="logo" />
-    <h1 class="h0">
-      h1 Artur <br />Fedorov
-    </h1>
+    <h1 class="h0">h1 Artur <br />Fedorov</h1>
+    <Date />
     <h1>h1 Artur Fedorov new</h1>
     <h2>h2 Artur Fedorov</h2>
     <h3>h3 Artur Fedorov</h3>
@@ -15,7 +13,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import {db} from '@/api/db';
+import { db } from '@/api/db';
 export default Vue.extend({
   name: 'Home',
   data() {
@@ -24,7 +22,7 @@ export default Vue.extend({
     };
   },
   firestore: {
-    years: db.collection('years'),
-  },
+    years: db.collection('years')
+  }
 });
 </script>

@@ -3,7 +3,7 @@ module.exports = {
   rules: {
     // Base rules
     indentation: 2,
-    'number-leading-zero': 'never',
+    'number-leading-zero': 'always',
     'length-zero-no-unit': true,
     'string-quotes': 'single',
     'selector-max-id': 0,

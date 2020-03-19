@@ -1,3 +1,4 @@
+/* eslint-disable */
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const CodeframeFormatter = require('stylelint-codeframe-formatter');
 
