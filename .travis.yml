@@ -15,11 +15,11 @@ addons:
   chrome: stable
 language: node_js
 node_js:
-  - "9"
+  - "11"
 cache:
   yarn: false
-#  directories:
-#  - "./node_modules"
+  directories:
+  - "./node_modules"
 install:
 - yarn install
 - yarn add firebase-tools
