@@ -16,10 +16,10 @@ before_install:
 addons:
   chrome: stable
 before_script:
+  - yarn install
   - yarn add -g @vue/cli
   - yarn add -g firebase-tools
 script:
-  - yarn install
   - yarn run build
 
 deploy:
