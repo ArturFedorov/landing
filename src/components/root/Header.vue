@@ -1,29 +1,32 @@
 <template>
-  <div class="header">
-    <div class="header-logo">
+  <div class="header grid">
+    <div class="header-logo grid-left">
       <SvgIcon
         name="logo"
         width="78"
         height="79"/>
     </div>
-    <div class="header-content"></div>
-    <div class="header-actions">
-      <div class="header-actions-one"></div>
+    <div class="header-content grid-main"></div>
+    <div class="header-actions grid-right">
+      <div class="header-actions-one">
+        <Ball />
+      </div>
       <div class="header-actions-two"></div>
     </div>
   </div>
 </template>
 <script lang="ts">
   import Vue from 'vue';
+  import Ball from './Ball.vue';
   export default Vue.extend({
     name: 'Header',
+    components: {
+      Ball
+    }
   });
 </script>
 <style lang="scss" scoped>
   .header {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-column-gap: 1em;
     height: 140px;
     border-bottom: $border;
 
@@ -31,25 +34,20 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      grid-area: 1 / 1;
-      border-right: $border;
-    }
-
-    &-content {
-      grid-column: 2 / 12;
-      border-right: $border;
     }
 
     &-actions {
-      grid-column: 12 / 13;
       display: flex;
 
       &-one {
         border-right: $border;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       > div {
-        flex: 1;
+        width: 50%;
       }
     }
   }

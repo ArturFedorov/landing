@@ -1,7 +1,17 @@
 <template>
   <div id="app">
     <Header />
-    <router-view />
+    <div class="main grid">
+      <div class="main-left grid-left">
+
+      </div>
+      <div class="main-content grid-main">
+        <router-view />
+      </div>
+      <div class="main-actions grid-right">
+
+      </div>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -14,4 +24,12 @@
     }
   });
 </script>
-<style lang="scss"></style>
+<style lang="scss">
+  .main {
+    &-content {
+    }
+
+    &-actions {
+    }
+  }
+</style>
