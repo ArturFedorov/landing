@@ -6,9 +6,6 @@ cache:
   yarn: true
   directories:
     - ./node_modules
-branches:
-  only:
-    - master
 sudo: required
 before_install:
   # Repo for Yarn
@@ -20,7 +17,7 @@ addons:
   chrome: stable
 before_script:
   - yarn add -g @vue/cli
-  - - yarn add -g firebase-tools
+  - yarn add -g firebase-tools
 script:
   - yarn install
   - yarn run build
