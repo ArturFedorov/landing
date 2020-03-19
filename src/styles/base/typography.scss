@@ -33,3 +33,15 @@ p {
 .caption {
   @include font-face($font-thin, $font-size-caption);
 }
+
+div.is-red,
+p.is-red,
+span.is-red {
+  color: $red;
+}
+
+div.is-bold,
+p.is-bold,
+span.is-bold {
+  font-weight: $font-bold;
+}

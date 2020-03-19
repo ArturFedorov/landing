@@ -65,6 +65,6 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .svg-icon {
-  transition: fill .3s ease-in-out;
+  transition: fill 0.3s ease-in-out;
 }
 </style>
