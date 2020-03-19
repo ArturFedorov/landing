@@ -1,30 +1,31 @@
 language: node_js
 node_js:
-  - "10"
-
+- '10'
 cache:
   yarn: true
   directories:
-    - ./node_modules
+  - "./node_modules"
 sudo: required
 before_install:
-  # Repo for Yarn
-  - sudo apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
-  - echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-  - sudo apt-get update -qq
-  - sudo apt-get install -y -qq yarn=1.5.1-1
+- sudo apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
+- echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+- sudo apt-get update -qq
+- sudo apt-get install -y -qq yarn=1.5.1-1
 addons:
   chrome: stable
 install:
-  - yarn install
+- yarn install
 before_script:
-  - yarn global add @vue/cli
-  - yarn global add firebase-tools
+- yarn global add @vue/cli
+- yarn global add firebase-tools
 script:
-  - yarn run build
-
+- yarn run build
 deploy:
   skip_cleanup: true
   provider: firebase
   token:
-    secure: HfHXgtDDnq7lbYafGexOz6NzxLk6JfeYth138GZsu5YXeWj0xkrKk6mrmVgTZfOKSzQ7fiaO0WdNrxRlQoJByW4GNzaHC9S5WNN9ySNdn8ySgvH7dX7ijAYyWHHduycHTB5QBVp8y3k7VAwooJ1X7gLmDqNvY5Yy042KbVzKMJAQxDe42UkF8uXhKINAxBLmMfcGzTHFR6Zq2g1J0irCXKb4pmxHOWkeNdmQFO0dY25ElLBxZp3BSC3/Qy+EFMHfaoE7/NIKQGE4Ump31N095jNaNkZTR5T44x+QldpYgQNMgRRmi29ptC1C/mDlsIlsLzSyxWw0QLOqnnejUY4rRaUuDba5jxJS++vgat8uRRe1ZmQBr63d9db7Xr6HkcEen0pFsY3sy3oZIQPIZlEVXtC8V5Fla7WUsWURJTOxvlhGxsRxngow7BJL2FQFr8Gs209Z0FVZXbhE5vjtEU7p9zcxGEnsobhmgwvAVJcoP52yoEs+6vCw0p2ZcQ6Hj5JBniPjzI7GYAcSzDfGQEW6nqSh3UeDuYgBN4XY2s8RkA6HbLtMfqbdLElvVebQlPlcA8vCFV+GxewkoPlOgVCE15xRUU5OYzVdJRywTndGZh6jY6ub2s4ZgyJDsXKHeluUGXuDGlKL9rLT5G2RL7dY6ylrfk+zlOUYXIMTrmvLTG8=
+    secure: WKfP/sDEeix+Y56Qz8GUWVmCmQXoMZtq+QQ6CnmhJTTi8P6FkMwP+TShSd3Bn6SE4T9hgBs/0rtP590B/1GZE73trRYizq52IHeBgRr3bI/aW4ET3vrnQr1tIU1P8f9Wt0ggg0zSKZ1BkB+YC6WmxJkZhd3k7cfH0loq40y//bS4N7uBlYVopywRBk9nsQ+LuRMX62ExPQfE8I8/P9y+43aE9o6Hin3VugjdzKTyc8Bl1yFAE0YHIz2AlcwJAcUSRLRs4zUDbVMx1Toyr7tzIzCwmKchPEyeu87Ziwh27ttkGOqkWChUTvPFyMbH4vHSXLSLVef9fFWrNUnBW6CmjZUF7X5Re7LOo1PCBkI1z25hkBkj+AChzsANObalGfCoi4R/hc73joK6Gf8eFHhdUe9a4DdIOjRjEbIPMFq6QINQEzFeUHyX051yjFXYQ1VFWGoZj8YjlpcD1tnuC6pNsNELolBu7Rh+70058cgHTuCCgcNEnjFEmZT55BHb8fU9E088y/EDmck6M6h/yy8kyG0o66Kc3aPZyc5BoO5q0yOqCCAOgu37rHssJoEeotSj/bt76TguPmo1cNG52ZWFmDreml9MaXJrvIe8BwqxLsD9u8/1/yUXUv43D0KmxHdBNHq0IPzjZpnCAmLzq43lDY44L4vVZMi7a8s8ieVjnGw=
+notifications:
+  email: false
+dd:
+  secure: vvhgbrD2f1P+r0QgSk5R39ex5NA4/DBuP8Sx6MHzal8tW8+Dso4PXD0bi5yMzdn13vxCIWDYUKSeMakyPsfoj0fCqxIEj93r1joT4piDGGY/hr8VffgtrBqSQXb36mByRISBjSGuVVjseGPS+bK9hgEnsCK7D+J1Zk4URRZ/EIL077Wh2wzWXky/ZYrfRIhiiMS2dYaZSURHNRX4HyGLx6sxPR+31r5Rfx+ZyYeMQtLvpGqdBHIf/N9LcpKENp6rRWpcIZcFf/0sDZHlJ7LyEqCgq38vt1IZTLeyiTTaCUtPlIwSqZhx0ibZvEPo8NfUnSOek7i2GNRpXvkxLGvGsFe4O7dwLxXOb2uI4NjwlNNIoSXoHAeZdrUT2oJDoOBZG+FyEQcG77XCeXrApfu78pMCWmku7MDU3Zav2z/QobP3pq4zX+a5NzAvyyfb/DfJ0YnmnmiESiu7uEdZT9ZKB9iPbQmWIsGV0Bx6XMfwatK2WpO7wNsgT2HO80yvxrpgHUrtman5pXt/PxSCwa12IzRvOFtJ9W0m+PtAcpUOMed/ionbOPPsG5PZSqx0sTWihvb7gxeLuowkPUc4ruH3JPhsfwPrrI4P/2x7jnDHw2eia8e08O1PWyuCKQiEo/OdVqNi/ijL9ptG4D7KwlsH2bwD93vQWt1P4FxKKvPTuRY=
