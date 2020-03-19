@@ -24,7 +24,6 @@ install:
 - yarn install
 
 before_script:
-  yarn install
   yarn global add @vue/cli
   yarn global add firebase-tools
 script:
