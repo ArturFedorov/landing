@@ -1,0 +1,46 @@
+dist: trusty
+
+env:
+  # Use test credentials for sequelize
+  - NODE_ENV=production
+
+sudo: required
+before_install:
+  # Repo for Yarn
+  - sudo apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
+  - echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+  - sudo apt-get update -qq
+  - sudo apt-get install -y -qq yarn=1.5.1-1
+addons:
+  chrome: stable
+
+language: node_js
+
+cache:
+  yarn: true
+  directories:
+    - ./node_modules
+
+install:
+  - yarn install
+
+script:
+  # Use Chromium instead of Chrome.
+  # - export CHROME_BIN=chromium-browser
+  # Run linter
+  - xvfb-run -a yarn run lint
+  # Run build
+  - xvfb-run -a yarn build
+#   - sleep 3
+
+deploy:
+  provider: firebase
+  token:
+    secure: "fe9xRhB+oO12fIIkI61wwSp9UCox4isjysGFFEJKuUnZ/vXWaRl2RxbF+3+9vi8cuZStq2U5SeEYYWchRYZavzEfDacU6VVZH5gtz87PCo4FEdLaFZgg/3T+Cv4nezeBCLrlD6s0gGI9Wb1apUVBO38dUBRPCnr8irbiDlZeGE9DqhlfIkVgywwStb6ktuBBNuR0GYbYinyPwGdeLyPmy5jaZcgII71VHvOGxQIYU5hHii72Vsv4JHifMWAphdRfbvIB3f1/ZWSVDp/bwcyMdt6bR9u3h8QZaj8NjhMH0Xm9fjcYsaAFOA5k01gSdL5xTgvypiV5MxPe+Ep+6DD9+dQhNfGonsrG+9Q/7WR56Xb0I6DyZyO6+rEr3O0E5TbwKuAiQrIomy1/U9nOizjZj91nttxOXeDoc9LdRS44UGPyeN+4ziHmB8k/MAW75Jc15fbsjYJ5FCD0ICg5Ml/e1GDL1CmPTLizz01ib2oXfwK/WWtDWPEQXSZlcYji2TduC6dfV61MHiyMbnY1YZPTllwgDUhOdMrcxV8bM1Ykq7WOaGSxQPiJwPvQg+XWMkSNPZwtxPgWh936ajn8pMlGER0BdWg9JEg4u5O1l/JvxRfWuGxzidsttL9JtmWazj0N00zQhEacBpbUT+L1xnfYy8vKboNGEkb6zABKC7YgQAk="
+
+after_script:
+  # Stop backend
+  - pkill node
+
+notifications:
+  email: false
