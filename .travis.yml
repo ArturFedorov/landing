@@ -23,6 +23,7 @@ cache:
 install:
 - yarn install
 - yarn add firebase-tools
+- npm install -g @vue/cli@latest
 script:
 - xvfb-run -a yarn lint
 - xvfb-run -a yarn build
