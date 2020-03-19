@@ -1,6 +1,11 @@
 language: node_js
 node_js:
   - "11.0"
+
+cache:
+  yarn: true
+  directories:
+    - ./node_modules
 branches:
   only:
     - master
@@ -15,6 +20,7 @@ addons:
   chrome: stable
 before_script:
   - yarn add -g @vue/cli
+  - - yarn add -g firebase-tools
 script:
   - yarn install
   - yarn run build
