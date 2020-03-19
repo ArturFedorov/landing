@@ -24,7 +24,7 @@ cache:
 install:
 - yarn install
 script:
-- xvfb-run -a yarn run lint
+- xvfb-run -a yarn lint
 - xvfb-run -a yarn build
 deploy:
   provider: firebase
