@@ -11,7 +11,6 @@ before_install:
 - echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 - sudo apt-get update -qq
 - sudo apt-get install -y -qq yarn=1.5.1-1
-- yarn add firebase-tools
 addons:
   chrome: stable
 language: node_js
@@ -21,6 +20,7 @@ cache:
   - "./node_modules"
 install:
 - yarn install
+- yarn add firebase-tools
 script:
 - xvfb-run -a yarn run lint
 - xvfb-run -a yarn build
