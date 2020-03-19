@@ -15,7 +15,7 @@ addons:
   chrome: stable
 language: node_js
 node_js:
-  - "11.0"
+  - "10"
 cache:
   yarn: false
   directories:
