@@ -2,6 +2,7 @@ const StylelintPlugin = require('stylelint-webpack-plugin');
 const CodeframeFormatter = require('stylelint-codeframe-formatter');
 
 module.exports = {
+  publicPath: '/',
   chainWebpack: config => {
     config
       .plugin('stylelint')
