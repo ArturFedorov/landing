@@ -14,21 +14,21 @@ before_install:
 addons:
   chrome: stable
 language: node_js
-#node_js:
-#  - "10"
+node_js:
+  - "10"
 cache:
   yarn: false
   directories:
-  - "./node_modules"
+  - "node_modules"
 install:
 - yarn install
 
 before_script:
-  yarn global add @vue/cli
-  yarn global add firebase-tools
+  sudo yarn global add @vue/cli
+  sudo yarn global add firebase-tools
 script:
-- xvfb-run -a yarn lint
-- xvfb-run -a yarn build
+- sudo yarn lint
+- sudo yarn build
 deploy:
   provider: firebase
   token:
