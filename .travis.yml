@@ -15,8 +15,6 @@ addons:
   chrome: stable
 
 language: node_js
-node_js:
-  - "10"
 
 cache:
   yarn: true
@@ -24,7 +22,7 @@ cache:
     - ./node_modules
 
 install:
-  - yarn
+  - yarn install
 
 script:
   # Use Chromium instead of Chrome.
