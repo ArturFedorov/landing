@@ -15,7 +15,7 @@ addons:
   chrome: stable
 language: node_js
 node_js:
-  - "10"
+  - "9"
 cache:
   yarn: false
 #  directories:
@@ -23,7 +23,7 @@ cache:
 install:
 - yarn install
 - yarn add firebase-tools
-- npm install -g @vue/cli@latest
+
 script:
 - xvfb-run -a yarn lint
 - xvfb-run -a yarn build
