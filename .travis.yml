@@ -24,11 +24,11 @@ install:
 - yarn install
 
 before_script:
-  sudo yarn global add @vue/cli
-  sudo yarn global add firebase-tools
+  yarn global add @vue/cli
+  yarn global add firebase-tools
 script:
-- sudo yarn lint
-- sudo yarn build
+- xvfb-run -a yarn run lint
+- xvfb-run -a yarn run build
 deploy:
   provider: firebase
   token:
