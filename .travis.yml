@@ -15,10 +15,11 @@ before_install:
   - sudo apt-get install -y -qq yarn=1.5.1-1
 addons:
   chrome: stable
-before_script:
+install:
   - yarn install
-  - yarn add -g @vue/cli
-  - yarn add -g firebase-tools
+before_script:
+  - yarn global add @vue/cli
+  - yarn global add firebase-tools
 script:
   - yarn run build
 
