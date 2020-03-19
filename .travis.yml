@@ -7,25 +7,25 @@ env:
   - secure: Z8AImS1HAOyiwc387EsZJNnY3nGB8YA7FEyelqa0rvTvGDlUyLVgaZAvVegNFLiy7Bj5R0vO8W3EPc7iOcpe5ndS20JBbpY5TzdDjjQeD2V/IJjEO8UN9YAqy8LqU9TnuJNXhi/nYhHqXwOeg1rIwBHj3hlQyDEiY4zHlTMiVE/m27xzfQStqg6gJYZOnMnyWGqK9v4kImMBkhZY3HHZodHt3ise5IHgxc+flhESDh85GJ8EeGBoNn4s3W9nHECaC3HF9UXT5AriokSouDYgSeXk85Hlzlmey/Xw08GH/pTjWRHg8QY1EMTTY2ZLtDbgRBP9dVy//C5+2P8hw2RlWoSi8Wv2WHoFkj0woFrroGLwyY2PhJUEnwCWS7/KziNwzxZQlp6OqjwyN7Ff+kq4D7ZmjatJQN2HmVtn4NRAUPGNO80ba3S7V+BDEkMEKNsXuSSW6La4mPZla1/Wi0bD2m/+CGjBPNr0LLNtOhDDOBg3wRaKhWcCgKgPLUfZBqdn+JXdAJZvfYHZN74sLhPt4Z6oWki1ecqrg4pjpNc3nVZX7WwFYKpWqKiJ45Nk0+E2gHIsRtVvjFI22E7tNxJAN9jWglHHtnNVdylLH7f5rTp3j5yVofWpfbSWfP6aLxJgYNvzffx1BqESn+PJlkSwdZRutLQ9e145b8YgCllg44w=
 sudo: required
 before_install:
-- sudo apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
-- echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-- sudo apt-get update -qq
-- sudo apt-get install -y -qq yarn=1.5.1-1
-- yarn add firebase-tools
+#- sudo apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
+#- echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+#- sudo apt-get update -qq
+#- sudo apt-get install -y -qq yarn=1.5.1-1
+- npm install firebase-tools
 addons:
   chrome: stable
 language: node_js
 node_js:
   - "10"
 cache:
-  yarn: false
-  directories:
-  - "./node_modules"
+#  yarn: false
+#  directories:
+#  - "./node_modules"
 install:
 - yarn install
 script:
-- xvfb-run -a yarn lint
-- xvfb-run -a yarn build
+- npm run lint
+- npm run build
 deploy:
   provider: firebase
   token:
