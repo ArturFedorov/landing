@@ -16,9 +16,9 @@ addons:
   chrome: stable
 language: node_js
 node_js:
-  - "9"
+  - "10"
 cache:
-  yarn: true
+  yarn: false
   directories:
   - "./node_modules"
 install:
