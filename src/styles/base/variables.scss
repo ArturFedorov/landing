@@ -24,18 +24,25 @@ $building-unit-x12: $building-unit * 12; // 96px
 $transition-duration-default: .3s;
 
 // Typography
-$font-family: 'TeleGrotesk Next';
+$font-family: 'neue-haas-grotesk-display';
 
 // font-size
 $font-size-base: 18px;
+$font-size-small: 16px;
+$font-size-caption: 12px;
+$font-size-h0: 259px;
+$font-size-h1: 64px;
+$font-size-h2: 48px;
+$font-size-h3: 24px;
 
 // line-height
 $line-height-base: 1.2;
 
 // font-weights
 $font-thin: 100;
-$font-regular: 400;
-$font-medium: 500;
+$font-light: 400;
+$font-regular: 500;
+$font-medium: 600;
 $font-bold: 700;
 $font-ultra: 900;
 

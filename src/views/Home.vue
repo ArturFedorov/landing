@@ -1,6 +1,15 @@
 <template>
   <div class="home">
     <SvgIcon name="logo" />
+    <h1 class="h0">
+      h1 Artur <br />Fedorov
+    </h1>
+    <h1>h1 Artur Fedorov</h1>
+    <h2>h2 Artur Fedorov</h2>
+    <h3>h3 Artur Fedorov</h3>
+    <p>18px Testing base text</p>
+    <p class="p-body">16px Testing base text</p>
+    <p class="caption">12px Testing base text</p>
   </div>
 </template>
 

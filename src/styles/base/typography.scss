@@ -1,0 +1,35 @@
+@mixin font-face($fontWeight, $fontSize) {
+  font-family: $font-family, sans-serif;
+  font-weight: $fontWeight;
+  font-style: normal;
+  font-size: $fontSize;
+}
+
+.h0 {
+  @include font-face($font-bold, $font-size-h0);
+}
+
+h1 {
+  @include font-face($font-bold, $font-size-h1);
+}
+
+h2 {
+  @include font-face($font-bold, $font-size-h2);
+}
+
+h3 {
+  @include font-face($font-bold, $font-size-h3);
+}
+
+div,
+p {
+  @include font-face($font-light, $font-size-base);
+}
+
+.p-body {
+  @include font-face($font-light, $font-size-small);
+}
+
+.caption {
+  @include font-face($font-thin, $font-size-caption);
+}
