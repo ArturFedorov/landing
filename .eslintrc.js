@@ -17,7 +17,7 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     //'prettier/prettier': ['error', { singleQuote: true }],
-    indent: ["warn", 2],
+    indent: ['warn', 2],
     quotes: [2, 'single', { avoidEscape: true }]
   },
   overrides: [

@@ -11,6 +11,7 @@
 
 h1 {
   @include font-face($font-bold, $font-size-h1);
+  @include fluid-type($min_width, $max_width, $font-size-h3, $font-size-h1);
 }
 
 h2 {
@@ -32,12 +33,6 @@ p {
 
 .caption {
   @include font-face($font-thin, $font-size-caption);
-}
-
-div.is-red,
-p.is-red,
-span.is-red {
-  color: $red;
 }
 
 div.is-bold,
