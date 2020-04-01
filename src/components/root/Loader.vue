@@ -106,7 +106,6 @@ export default Vue.extend({
   },
   methods: {
     animate() {
-      console.log('animate')
       const timeline = AnimationService.anime.timeline({
         easing: 'easeInOutQuint',
         duration: 1300,
