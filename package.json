@@ -14,6 +14,7 @@
     "animejs": "^3.1.0",
     "firebase": "^7.11.0",
     "gsap": "^3.2.6",
+    "scrollmagic": "^2.0.7",
     "stylelint-codeframe-formatter": "^1.0.4",
     "svg4everybody": "^2.1.9",
     "vue": "^2.6.11",
