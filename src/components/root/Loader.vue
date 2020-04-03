@@ -104,15 +104,16 @@ export default Vue.extend({
       stagger: 0.05,
       scale: 0.95,
       ease: AnimationService.easing.power1.easeInOut
-    }).to('.loader', {
-      delay: -1.5,
-      backgroundColor: '#FF0092'
     })
-      .to('.letter2', {
-        fill: '#0455BF',
-         //stagger: -0.05,
-        scale: 0.95
-      });
+      .to('.loader', {
+      delay: -1.5,
+      backgroundColor: '#ffffff'
+    })
+    //   .to('.letter2', {
+    //     fill: '#0455BF',
+    //      //stagger: -0.05,
+    //     scale: 0.95
+    //   });
   },
   methods: {
     animate() {
