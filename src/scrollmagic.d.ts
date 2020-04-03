@@ -1,5 +1,6 @@
-import Vue from "vue";
-import { TimelineMax, TweenLite } from "gsap";
+/* eslint-disable */
+import Vue from 'vue';
+import { TimelineMax, TweenLite } from 'gsap';
 /* tslint:disable ban-types no-namespace max-classes-per-file */
 /* https://github.com/danhanfry/KawasakiReproject/blob/master/KawasakiReproject/scripts/typings/scrollmagic.d.ts */
 
@@ -183,13 +184,13 @@ declare namespace ScrollMagic {
     setTween(
       tweenObject: string | HTMLElement | TweenLite,
       duration: number,
-      params: Object
+      params: Record<string, any>
     ): Scene;
     tweenChanges(newTweenChanges?: boolean): Scene;
   }
 }
 
-declare module "vue/types/vue" {
+declare module 'vue/types/vue' {
   interface Vue {
     $scrollmagic: {
       /** Add one ore more scene(s) to the controller. */

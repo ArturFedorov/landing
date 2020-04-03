@@ -18,7 +18,8 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     //'prettier/prettier': ['error', { singleQuote: true }],
     indent: ['warn', 2],
-    quotes: [2, 'single', { avoidEscape: true }]
+    quotes: [2, 'single', { avoidEscape: true }],
+    '@typescript-eslint/interface-name-prefix': [2, { 'prefixWithI': 'always' }]
   },
   overrides: [
     {

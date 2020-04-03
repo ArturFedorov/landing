@@ -104,16 +104,13 @@ export default Vue.extend({
       stagger: 0.05,
       scale: 0.95,
       ease: AnimationService.easing.power1.easeInOut
+    }).to('.loader', {
+      delay: -0.8,
+      opacity: 0,
+      zIndex: -2
+    }).to('.loader', {
+      display: 'none'
     })
-      .to('.loader', {
-      delay: -1.5,
-      backgroundColor: '#ffffff'
-    })
-    //   .to('.letter2', {
-    //     fill: '#0455BF',
-    //      //stagger: -0.05,
-    //     scale: 0.95
-    //   });
   },
   methods: {
     animate() {
@@ -155,7 +152,7 @@ export default Vue.extend({
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 2;
+    z-index: -2;
     display: flex;
     flex-direction: column;
     align-items: center;
