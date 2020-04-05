@@ -43,17 +43,17 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue';
-  import {AnimationService} from '@/shared/services/animation.service';
-  export default Vue.extend({
-    name: 'About',
-    mounted(): void {
-      AnimationService.timeLine()
-        .from('.is-blue', {
-          duration: 1.5,
-          opacity: 0,
-          y: 20,
-          stagger: 0.2
+import Vue from 'vue';
+import {AnimationService} from '@/shared/services/animation.service';
+export default Vue.extend({
+  name: 'About',
+  mounted(): void {
+    AnimationService.timeLine()
+      .from('.is-blue', {
+        duration: 1.5,
+        opacity: 0,
+        y: 20,
+        stagger: 0.2
       }).from('.h1', {
         delay: -1.5,
         duration: 1,
@@ -62,8 +62,8 @@
         scaleX: 1.2,
         stagger: 0.2
       })
-    }
-  });
+  }
+});
 </script>
 
 <style lang="scss" scoped>
