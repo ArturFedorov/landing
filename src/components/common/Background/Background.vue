@@ -857,10 +857,15 @@ import Vue from 'vue';
 import {AnimationService} from '@/shared/services/animation.service';
 export default Vue.extend({
   name: 'Background',
+  props: {
+    animationDelay: {
+      type: Number,
+      default: 0
+    }
+  },
   mounted(): void {
-
     AnimationService.tweenLite.from('.ring', {
-      delay: 8,
+      delay: this.animationDelay,
       duration: 1.5,
       x: -50,
       opacity: 0,

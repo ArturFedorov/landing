@@ -1,0 +1,7 @@
+@font-face {
+  font-family: $font-family-bold;
+  font-style: normal;
+  font-weight: $font-regular;
+  src: url($font_path + 'Elena-Regular.woff2') format('woff2'), url($font_path + 'Elena-Regular.woff') format('woff');
+}
+
