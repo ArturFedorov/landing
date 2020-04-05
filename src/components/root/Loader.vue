@@ -75,6 +75,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import {AnimationService} from '@/shared/services/animation.service';
+import {SET_SHOW_LOADER} from '@/store/ui';
 export default Vue.extend({
   name: 'Loader',
   mounted(): void {
@@ -109,7 +110,8 @@ export default Vue.extend({
       opacity: 0,
       zIndex: -2
     }).to('.loader', {
-      display: 'none'
+      display: 'none',
+      onComplete: () => this.loaderFinished()
     })
   },
   methods: {
@@ -139,6 +141,9 @@ export default Vue.extend({
         });
 
       timeline.play();
+    },
+    loaderFinished() {
+      this.$store.commit(SET_SHOW_LOADER, true);
     }
   }
 });
@@ -152,7 +157,7 @@ export default Vue.extend({
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: -2;
+    z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: center;

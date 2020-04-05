@@ -1,38 +1,32 @@
-@mixin font-face($fontWeight, $fontSize, $fontStyle: normal) {
-  font-family: $font-family, sans-serif;
+@mixin font-face($fontWeight, $fontSize, $fontStyle: normal, $fontFamily: $font-family) {
+  font-family: $fontFamily, sans-serif;
   font-weight: $fontWeight;
   font-style: $fontStyle;
   font-size: $fontSize;
 }
 
-.h0 {
-  @include font-face($font-bold, $font-size-h0);
-}
-
+.h0,
 h1 {
-  @include font-face($font-bold, $font-size-h1);
-  @include fluid-type($min_width, $max_width, $font-size-h3, $font-size-h1);
+  @include font-face($font-regular, $font-size-h0, normal, 'elena');
+  @include fluid-type($min_width, $max_width, $font-size-h2, $font-size-h0);
 }
 
 h2 {
-  @include font-face($font-light, $font-size-h2);
+  @include font-face($font-light, $font-size-h0, normal);
+  @include fluid-type($min_width, $max_width, $font-size-h3, $font-size-h2);
 }
 
-h3 {
-  @include font-face($font-bold, $font-size-h3);
-}
-
-div,
-p {
-  @include font-face($font-light, $font-size-base);
+.h1 {
+  @include font-face($font-regular, $font-size-h0, normal, 'elena');
+  @include fluid-type($min_width, $max_width, $font-size-h3, $font-size-h1);
 }
 
 .p-body {
-  @include font-face($font-light, $font-size-small);
+  @include font-face($font-light, $font-size-base);
 }
 
 .p-body-italic {
-  @include font-face($font-light, $font-size-small, italic);
+  @include font-face($font-light, $font-size-base, italic);
 }
 
 .caption {
@@ -45,6 +39,14 @@ span.is-bold {
   font-weight: $font-bold;
 }
 
+
+p.is-red,
+h1.is-red,
+h2.is-red,
+h3.is-red,
+span.is-red {
+  color: $red;
+}
 
 p.is-blue,
 h1.is-blue,

@@ -1,35 +1,20 @@
 <template>
   <div class="navigation">
-    <div class="navigation-item">
-      <p class="p-body-italic">01</p>
-      <router-link to="/">
-        <SvgIcon
-          class="navigation-item-text is-blue"
-          name="elena-krasnenko"/>
-      </router-link>
-    </div>
-    <div class="navigation-item">
-      <p class="p-body-italic">02</p>
-      <router-link to="/">
-        <SvgIcon
-          class="navigation-item-text is-red"
-          name="about"/>
-      </router-link>
-    </div>
-    <div class="navigation-item">
-      <p class="p-body-italic">03</p>
-      <router-link to="/">
-        <SvgIcon
-          class="navigation-item-text is-blue"
-          name="diplomas"/>
-      </router-link>
-    </div>
-    <div class="navigation-item">
-      <p class="p-body-italic">04</p>
-      <router-link to="/">
-        <SvgIcon
-          class="navigation-item-text is-red"
-          name="contact"/>
+    <div
+      class="navigation-item"
+      :class="isEven(index) ? '' : 'is-centered'"
+      v-for="(link, index) in links"
+      :key="link.text">
+      <p class="p-body-italic navigation-item-counter">
+        {{ `0${ index +1 }`}}
+      </p>
+      <router-link
+        :to="link.url"
+        class="navigation-item-link">
+        <h1
+          class="navigation-item-text is-uppercase is-red">
+          {{ link.text }}
+        </h1>
       </router-link>
     </div>
   </div>
@@ -39,13 +24,33 @@
 import Vue from 'vue';
 import {AnimationService} from '@/shared/services/animation.service';
 export default Vue.extend({
+  data() {
+    return {
+      links: [
+        { text: 'elena krasnenko', url: '/'},
+        { text: 'about me', url: '/about'},
+        { text: 'diplomas', url: '/diplomas'},
+        { text: 'contact', url: '/contact'}
+      ]
+    }
+  },
   mounted(): void {
-    AnimationService.tweenLite.from('.navigation-item-text', {
-      duration: 2,
-      opacity: 0,
-      rotationX: 90,
-      rotationZ: 3
-    })
+    AnimationService.gsap.timeline({defaults: { duration: 1.5}})
+      .from('.navigation-item', {
+        duration: 1,
+        opacity: 0,
+        x: -20,
+        stagger: 0.1,
+      }).to('.navigation-item-text', {
+        delay: -1.2,
+        color: '#0455BF',
+        stagger: 0.2
+      })
+  },
+  methods: {
+    isEven(index: number): boolean {
+      return  index % 2 === 0;
+    }
   }
 });
 </script>
@@ -59,50 +64,51 @@ export default Vue.extend({
     right: 0;
     left: 0;
     z-index: 2;
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(12, minmax(160px, 1fr));
-    grid-template-rows: repeat(6, minmax(50px, 1fr));
+    display: flex;
+    flex-direction: column;
     box-sizing: border-box;
+    padding: 8em 8em 8em 14em;
+    justify-content: space-between;
+    overflow-y: auto;
+
+    @media ($mobile) {
+      padding: 8em 2em;
+      justify-content: flex-start;
+    }
 
     &-item {
       display: flex;
       align-items: flex-end;
+      justify-content: flex-start;
 
-      &:nth-child(1) {
-        grid-area: 2 / 2;
+      @media ($mobile) {
+        margin-bottom: 4em;
       }
 
-      &:nth-child(2) {
-        grid-area: 3 / 3;
+      &.is-centered {
+        justify-content: center;
+
+        @media ($mobile) {
+          justify-content: flex-start;
+        }
       }
 
-      &:nth-child(3) {
-        grid-area: 4 / 2;
-      }
-
-      &:nth-child(4) {
-        grid-area: 5 / 4;
+      &-link {
+        text-decoration: none;
       }
 
       &-text {
-        /*height: 200px;*/
-        transform-origin: bottom left;
-        height: 60px;
+        line-height: 82%;
+      }
 
-        &.is-blue {
-          fill: $blue;
-        }
+      &-counter {
+        margin-right: 2em;
+        line-height: 100%;
 
-        &.is-red {
-          fill: $red;
+        @media ($mobile) {
+          margin-right: 1em;
         }
       }
     }
-  }
-
-  .svg-icon-elena-krasnenko {
-    width: 800px;
-    height: 62px;
   }
 </style>

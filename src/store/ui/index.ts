@@ -24,7 +24,8 @@ const uiState: Module<IUIState, {}> = {
     }
   },
   getters: {
-    [SHOW_NAVIGATION]: state => state.showNavigation
+    [SHOW_NAVIGATION]: state => state.showNavigation,
+    [SHOW_LOADER]: state => state.showLoader
   }
 };
 
