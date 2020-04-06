@@ -39,63 +39,63 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue';
-  import {AnimationService} from '@/shared/services/animation.service';
-  export default Vue.extend({
-    name: 'Diplomas',
-    data() {
-      return {
-        activeIndex: 0,
-        diplomas: [
-          { name: 'Psychotherapist diploma', text: 'Theory and practice of gestalt therapy', date: '26.08.08 - 29.09.2013'},
-          { name: 'Course1', text: 'Theory and practice of gestalt therapy', date: '26.03.08 - 29.03.2013'},
-          { name: 'Course2', text: 'Theory and practice of gestalt therapy', date: '26.03.08 - 29.03.2013'},
-          { name: 'Course3', text: 'Theory and practice of gestalt therapy', date: '26.03.08 - 29.03.2013'}
-        ],
-        timeline: AnimationService.timeLine()
-      };
-    },
-    mounted(): void {
-      this.timeline.set('.diplomas-item', {
-        rotationZ: -90,
-        opacity: 0
-      });
+import Vue from 'vue';
+import {AnimationService} from '@/shared/services/animation.service';
+export default Vue.extend({
+  name: 'Diplomas',
+  data() {
+    return {
+      activeIndex: 0,
+      diplomas: [
+        { name: 'Psychotherapist diploma', text: 'Theory and practice of gestalt therapy', date: '26.08.08 - 29.09.2013'},
+        { name: 'Course1', text: 'Theory and practice of gestalt therapy', date: '26.03.08 - 29.03.2013'},
+        { name: 'Course2', text: 'Theory and practice of gestalt therapy', date: '26.03.08 - 29.03.2013'},
+        { name: 'Course3', text: 'Theory and practice of gestalt therapy', date: '26.03.08 - 29.03.2013'}
+      ],
+      timeline: AnimationService.timeLine()
+    };
+  },
+  mounted(): void {
+    this.timeline.set('.diplomas-item', {
+      rotationZ: -90,
+      opacity: 0
+    });
 
-      this.timeline.set('.is-actual', {
-        rotationZ: 0,
-        opacity: 1,
-        y: 0
-      });
-    },
-    methods: {
-      animate() {
-        this.timeline
-          .to('.is-actual', {
-            duration: 1,
-             scale: 0.8,
-            opacity: 0,
-            ease: AnimationService.easing.power1.easeInOut
-            //  backgroundColor: '#FDF9FF'
-          }).to('.is-actual', {
+    this.timeline.set('.is-actual', {
+      rotationZ: 0,
+      opacity: 1,
+      y: 0
+    });
+  },
+  methods: {
+    animate() {
+      this.timeline
+        .to('.is-actual', {
+          duration: 1,
+          scale: 0.8,
+          opacity: 0,
+          ease: AnimationService.easing.power1.easeInOut
+          //  backgroundColor: '#FDF9FF'
+        }).to('.is-actual', {
           rotationZ: -90,
           scale: 1
         })
-          .to('.is-next', {
-            duration: 1,
-            delay: -1.3,
-            ease: AnimationService.easing.power1.easeOut,
-            rotationZ: 0,
-            opacity: 1,
-            onComplete: () => this.activeIndex = this.activeIndex === this.diplomas.length -1 ? 0 : this.activeIndex + 1
-          });
+        .to('.is-next', {
+          duration: 1,
+          delay: -1.3,
+          ease: AnimationService.easing.power1.easeOut,
+          rotationZ: 0,
+          opacity: 1,
+          onComplete: () => this.activeIndex = this.activeIndex === this.diplomas.length -1 ? 0 : this.activeIndex + 1
+        });
 
-      },
-      nextIndexClass(index: number): string {
-        const lastIndex = this.activeIndex === this.diplomas.length-1 && index === 0;
-        return ((index === this.activeIndex + 1) || lastIndex) ? 'is-next' : '';
-      }
+    },
+    nextIndexClass(index: number): string {
+      const lastIndex = this.activeIndex === this.diplomas.length-1 && index === 0;
+      return ((index === this.activeIndex + 1) || lastIndex) ? 'is-next' : '';
     }
-  });
+  }
+});
 </script>
 
 <style lang="scss" scoped>

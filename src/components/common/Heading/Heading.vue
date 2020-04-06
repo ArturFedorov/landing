@@ -14,28 +14,28 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue';
-  import {AnimationService} from '@/shared/services/animation.service';
-  export default Vue.extend({
-    name: 'Heading',
-    props: {
-      showBg: {
-        type: Boolean,
-        default: true
-      }
-    },
-    mounted(): void {
-      AnimationService.timeLine()
-        .from('.heading-text', {
-          duration: 1.4,
-          x: 70,
-          opacity: 0,
-          stagger: 0.1,
-          ease: AnimationService.easing.power1.easeOut
-        })
-
+import Vue from 'vue';
+import {AnimationService} from '@/shared/services/animation.service';
+export default Vue.extend({
+  name: 'Heading',
+  props: {
+    showBg: {
+      type: Boolean,
+      default: true
     }
-  });
+  },
+  mounted(): void {
+    AnimationService.timeLine()
+      .from('.heading-text', {
+        duration: 1.4,
+        x: 70,
+        opacity: 0,
+        stagger: 0.1,
+        ease: AnimationService.easing.power1.easeOut
+      })
+
+  }
+});
 </script>
 
 <style lang="scss" scoped>
