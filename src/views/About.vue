@@ -4,10 +4,9 @@
       class="about-background"/>
     <div class="about-content">
       <div class="about-section">
-        <div class="about-header">
-          <h1 class="h1 about-header-text is-uppercase is-red">about</h1>
-          <h1 class="h1 about-header-bg is-uppercase">elena krasnenko</h1>
-        </div>
+        <Heading class="is-red">
+          About
+        </Heading>
       </div>
       <div class="about-section is-right">
         <div class="about-section-content">
@@ -53,14 +52,9 @@ export default Vue.extend({
         duration: 1.5,
         opacity: 0,
         y: 20,
-        stagger: 0.2
-      }).from('.h1', {
-        delay: -1.5,
-        duration: 1,
-        opacity: 0,
-        x: -20,
-        scaleX: 1.2,
-        stagger: 0.2
+        rotationZ: 2,
+        stagger: 0.2,
+        ease: AnimationService.easing.power1.easeOut
       })
   }
 });
@@ -93,23 +87,6 @@ export default Vue.extend({
 
     }
 
-    &-header {
-      position: relative;
-      width: 100%;
-      transform-origin: top left;
-
-      &-text {
-        position: relative;
-        z-index: 1;
-      }
-
-      &-bg {
-        top: 0;
-        position: absolute;
-        color: $pink;
-      }
-    }
-
     &-logo {
       fill: $blue;
     }
@@ -121,7 +98,7 @@ export default Vue.extend({
       box-sizing: border-box;
 
       &-content {
-        max-width: 60%;
+        max-width: 70%;
         margin-top: 8em;
 
         @media ($mobile) {

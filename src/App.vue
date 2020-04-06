@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="app">
+  <div id="app">
     <Loader />
     <Navigation v-if="showNavigation"/>
     <Header />
@@ -29,7 +29,4 @@ export default Vue.extend({
 });
 </script>
 <style lang="scss">
-  .app {
-    overflow: hidden;
-  }
 </style>

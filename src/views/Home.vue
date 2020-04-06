@@ -6,7 +6,7 @@
     <div class="home-content">
       <div class="home-content-section home-content-image">
         <div class="home-content-text">
-          <h1 class="home-header is-uppercase is-blue">Elena krasnenko</h1>
+          <Heading :showBg="false"/>
           <h2 class="home-header-h2 is-uppercase is-blue">gestalt therapist</h2>
         </div>
       </div>
@@ -25,12 +25,6 @@ export default Vue.extend({
       .from('.home-content-image', {
         delay: this.showLoader ? 0 : 6,
         opacity: 0
-      })
-      .from('.home-header', {
-        duration: 1,
-        opacity: 0,
-        x: -20,
-        scaleX: 1.2
       }).from('.home-header-h2', {
         y: 10,
         opacity: 0,
