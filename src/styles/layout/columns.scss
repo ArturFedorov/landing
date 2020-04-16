@@ -1,0 +1,31 @@
+.columns {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  box-sizing: border-box;
+
+  @media ($tablet) {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .column {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 4em;
+
+    @media ($tablet) {
+      width: 100%;
+      padding: 0 4em;
+    }
+
+    @media ($mobile) {
+      padding: 0 1em;
+    }
+  }
+}
+
+

@@ -11,6 +11,11 @@ h1 {
   @include fluid-type($min_width, $max_width, $font-size-h2, $font-size-h0);
 }
 
+.h2 {
+  @include font-face($font-light, $font-size-h0, normal);
+  @include fluid-type($min_width, $max_width, $building-unit-x4, $building-unit-x6);
+}
+
 h2 {
   @include font-face($font-light, $font-size-h0, normal);
   @include fluid-type($min_width, $max_width, $font-size-h3, $font-size-h2);
@@ -23,6 +28,10 @@ h2 {
 
 .p-body {
   @include font-face($font-light, $font-size-base);
+
+  &-big {
+    @include font-face($font-light, $font-size-h3);
+  }
 }
 
 .p-body-italic {
