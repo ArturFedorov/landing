@@ -9,7 +9,8 @@ Vue.use(VueRouter);
 export enum Routes {
   HOME = 'Home',
   ABOUT = 'About',
-  DIPLOMAS = 'Diplomas'
+  DIPLOMAS = 'Diplomas',
+  REVIEWS = 'Reviews'
 }
 
 const routes = [
@@ -26,7 +27,12 @@ const routes = [
   {
     path: '/diplomas',
     name: Routes.DIPLOMAS,
-    component: () => import(/* webpackChunkName: 'about' */ '../views/Diplomas.vue')
+    component: () => import(/* webpackChunkName: 'about' */ '../views/Diplomas.vue'),
+  },
+  {
+    path: '/reviews',
+    name: Routes.REVIEWS,
+    component: () => import(/* webpackChunkName: 'about' */ '../views/Reviews.vue')
   }
 ];
 
