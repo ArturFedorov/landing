@@ -74,6 +74,11 @@ export default Vue.extend({
       justify-content: center;
       height: 100%;
 
+      @media ($mobile) {
+        justify-content: flex-start;
+        padding-top: 4em;
+      }
+
       &-item {
         margin-bottom: 1em;
       }
@@ -83,6 +88,7 @@ export default Vue.extend({
       &.is-right {
         background-color: $pink;
         position: relative;
+        background-color: $white;
       }
     }
 
@@ -107,6 +113,10 @@ export default Vue.extend({
     &-logo {
       margin-top: 1em;
       fill: $blue;
+
+      @media ($mobile) {
+        margin-top: 3em;
+      }
     }
   }
 </style>
