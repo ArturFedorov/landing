@@ -8,6 +8,10 @@ p {
 
 body {
   overflow: hidden;
+
+  @media ($mobile) {
+    overflow-y: auto;
+  }
 }
 
 a {

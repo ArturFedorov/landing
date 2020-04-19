@@ -26,6 +26,14 @@ export default Vue.extend({
     z-index: 5;
     box-sizing: border-box;
 
+    @media ($tablet) {
+      padding: 2em 4em;
+    }
+
+    @media ($mobile) {
+      padding: 1em;
+    }
+
     &-link {
       display: flex;
       align-items: center;

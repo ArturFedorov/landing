@@ -10,7 +10,8 @@ export enum Routes {
   HOME = 'Home',
   ABOUT = 'About',
   DIPLOMAS = 'Diplomas',
-  REVIEWS = 'Reviews'
+  REVIEWS = 'Reviews',
+  CONTACT = 'Contact'
 }
 
 const routes = [
@@ -33,6 +34,11 @@ const routes = [
     path: '/reviews',
     name: Routes.REVIEWS,
     component: () => import(/* webpackChunkName: 'about' */ '../views/Reviews.vue')
+  },
+  {
+    path: '/contact',
+    name: Routes.CONTACT,
+    component: () => import(/* webpackChunkName: 'about' */ '../views/Contact.vue')
   }
 ];
 
