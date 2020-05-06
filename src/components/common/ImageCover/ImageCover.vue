@@ -14,8 +14,8 @@ export default Vue.extend({
     new hoverEffect({
       parent: this.$refs.image as Element,
       intensity: 0.2,
-      image1: require('../../../assets/images/elena.png'),
-      image2: require('../../../assets/images/elena-color.png'),
+      image1: require('../../../assets/images/elena1.png'),
+      image2: require('../../../assets/images/elena2.png'),
       displacementImage: require('../../../assets/images/heightMap.png'),
       imagesRatio: 1.1
     });

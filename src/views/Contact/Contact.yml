@@ -1,0 +1,13 @@
+en:
+  title: 'Contact me'
+  subtitle: 'life is better in color'
+  addressLabel: 'Address:'
+  addressText: ' Frunzensakya subway, Pionesrkaya subway'
+  phoneLabel: 'Phone:'
+
+ru:
+  title: 'Контакты'
+  subtitle: 'жизнь ярче в красках'
+  addressLabel: 'Адрес:'
+  addressText: 'метро Фрунзенская, метро Пионерская'
+  phoneLabel: 'Телефон:'

@@ -12,13 +12,13 @@ h1 {
 }
 
 .h2 {
-  @include font-face($font-light, $font-size-h0, normal);
-  @include fluid-type($min_width, $max_width, $building-unit-x4, $building-unit-x6);
+  @include font-face($font-thin, $font-size-h0, normal);
+  @include fluid-type($min_width, $max_width, $building-unit-x3, $building-unit-x6);
 }
 
 h2 {
-  @include font-face($font-light, $font-size-h0, normal);
-  @include fluid-type($min_width, $max_width, $font-size-h3, $font-size-h2);
+  @include font-face($font-thin, $font-size-h0, normal);
+  @include fluid-type($min_width, $max_width, $building-unit-x2, $font-size-h2);
 }
 
 .h1 {
@@ -28,14 +28,25 @@ h2 {
 
 .p-body {
   @include font-face($font-light, $font-size-base);
+  @include fluid-type($min_width, $max_width, $font-size-caption, $font-size-base);
+
+  &.is-thin {
+    font-weight: $font-thin;
+  }
 
   &-big {
     @include font-face($font-light, $font-size-h3);
+    @include fluid-type($min_width, $max_width, $font-size-caption, $font-size-h3);
   }
 }
 
 .p-body-italic {
   @include font-face($font-light, $font-size-base, italic);
+  @include fluid-type($min_width, $max_width, $font-size-caption, $font-size-h3);
+
+  &.is-thin {
+    font-weight: $font-thin;
+  }
 }
 
 .caption {
@@ -48,7 +59,7 @@ span.is-bold {
   font-weight: $font-bold;
 }
 
-
+a.is-red,
 p.is-red,
 h1.is-red,
 h2.is-red,
@@ -57,6 +68,7 @@ span.is-red {
   color: $red;
 }
 
+a.is-blue,
 p.is-blue,
 h1.is-blue,
 h2.is-blue,
