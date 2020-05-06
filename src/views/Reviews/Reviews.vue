@@ -1,8 +1,9 @@
+<i18n src="./Reviews.yml" />
 <template>
   <div class="columns reviews">
     <div class="column">
       <Heading class="is-red">
-        Reviews
+        {{ $t('title') }}
       </Heading>
     </div>
     <div class="column is-right">

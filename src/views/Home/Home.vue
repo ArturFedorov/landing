@@ -1,3 +1,4 @@
+<i18n src="./Home.yml" />
 <template>
   <div class="home">
     <Background
@@ -6,8 +7,12 @@
     <div class="home-content">
       <div class="home-content-section home-content-image">
         <div class="home-content-text">
-          <Heading :showBg="false"/>
-          <h2 class="home-header-h2 is-uppercase is-blue">gestalt therapist</h2>
+          <Heading :showBg="false">
+            {{ $t('title') }}
+          </Heading>
+          <h2 class="home-header-h2 is-uppercase is-blue">
+            {{ $t('subtitle') }}
+          </h2>
         </div>
       </div>
     </div>
@@ -24,7 +29,8 @@ export default Vue.extend({
     AnimationService.timeLine({duration: 1.5})
       .from('.home-content-image', {
         delay: this.showLoader ? 0 : 6,
-        opacity: 0
+        opacity: 0,
+        scale: 1.05
       }).from('.home-header-h2', {
         y: 10,
         opacity: 0,
@@ -71,15 +77,21 @@ export default Vue.extend({
         justify-content: center;
         padding-left: 4em;
         transform-origin: bottom right;
+
+        @media ($mobile) {
+          justify-content: flex-start;
+          padding-left: 2em;
+          padding-top: 100px;
+        }
       }
 
       &-image {
-        background: bottom right url('../assets/images/elena.png') no-repeat;
+        background: bottom right url('../../assets/images/elena-color.png') no-repeat;
         background-size: contain;
         transform-origin: bottom right;
 
         @media ($mobile) {
-          background-image: none;
+          background-size: auto 60%;
         }
       }
     }

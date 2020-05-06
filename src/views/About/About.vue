@@ -1,3 +1,4 @@
+<i18n src="./About.yml" />
 <template>
   <div class="about">
     <Background
@@ -5,28 +6,30 @@
     <div class="about-content">
       <div class="about-section">
         <Heading class="is-red">
-          About
+          {{ $t('title') }}
         </Heading>
       </div>
       <div class="about-section is-right">
         <div class="about-section-content">
-          <p class="p-body is-blue">
-            I am gestalt therapist licenced by Moscow Gestalt Institute
+          <p
+            class="p-body is-blue"
+            :class="{'is-thin': isRussianLocale}">
+            {{ $t('text') }}
           </p>
-          <p class="p-body is-blue">
-            I am happy that well-being of your soul is as important as
-            well-being of your tooth or any part of your body, because
-            that is the reason why you are reading this page.
+          <p
+            class="p-body is-blue"
+            :class="{'is-thin': isRussianLocale}">
+            {{ $t('text2') }}
           </p>
-          <p class="p-body is-blue">
-            I have been helping people with life problems since 2006.
-            I am  specializing in gestalt therapy. I will be able to tell you
-            in details how it can help you during your first visit.
+          <p
+            class="p-body is-blue"
+            :class="{'is-thin': isRussianLocale}">
+            {{ $t('text3') }}
           </p>
-          <p class="p-body is-blue">
-            I am sure that anyone can turn life around for the better,
-            make dreams come true, cope with depression. I will do
-            possible and impossible in order to help you.
+          <p
+            class="p-body is-blue"
+            :class="{'is-thin': isRussianLocale}">
+            {{ $t('text4') }}
           </p>
           <p class="is-blue">
             <SvgIcon
@@ -44,8 +47,10 @@
 <script lang="ts">
 import Vue from 'vue';
 import {AnimationService} from '@/shared/services/animation.service';
+import {localeMixin} from '@/components/common/mixins/locale.mixin';
 export default Vue.extend({
   name: 'About',
+  mixins: [localeMixin],
   mounted(): void {
     AnimationService.timeLine()
       .from('.is-blue', {
@@ -72,7 +77,7 @@ export default Vue.extend({
       z-index: -1;
 
       @media ($mobile) {
-        right: -640px;
+        right: -740px;
       }
     }
 

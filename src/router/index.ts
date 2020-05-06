@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
+import Home from '../views/Home/Home.vue';
 import store from '@/store';
 import {SET_SHOW_NAVIGATION} from '@/store/ui';
 
@@ -23,22 +23,22 @@ const routes = [
   {
     path: '/about',
     name: Routes.ABOUT,
-    component: () => import(/* webpackChunkName: 'about' */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: 'about' */ '../views/About/About.vue')
   },
   {
     path: '/diplomas',
     name: Routes.DIPLOMAS,
-    component: () => import(/* webpackChunkName: 'about' */ '../views/Diplomas.vue'),
+    component: () => import(/* webpackChunkName: 'about' */ '../views/Diplomas/Diplomas.vue'),
   },
   {
     path: '/reviews',
     name: Routes.REVIEWS,
-    component: () => import(/* webpackChunkName: 'about' */ '../views/Reviews.vue')
+    component: () => import(/* webpackChunkName: 'about' */ '../views/Reviews/Reviews.vue')
   },
   {
     path: '/contact',
     name: Routes.CONTACT,
-    component: () => import(/* webpackChunkName: 'about' */ '../views/Contact.vue')
+    component: () => import(/* webpackChunkName: 'about' */ '../views/Contact/Contact.vue')
   }
 ];
 

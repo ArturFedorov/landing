@@ -5,6 +5,16 @@ const CodeframeFormatter = require('stylelint-codeframe-formatter');
 module.exports = {
   publicPath: '/',
   chainWebpack: config => {
+    config.module
+      .rule('i18n')
+      .resourceQuery(/blockType=i18n/)
+      .use('i18n')
+      .loader('@kazupon/vue-i18n-loader')
+      .end()
+      .use('yaml')
+      .loader('yaml-loader')
+      .end();
+
     config
       .plugin('stylelint')
       .use(StylelintPlugin, [
@@ -21,7 +31,7 @@ module.exports = {
       .rule('svg-sprite')
       .use('svgo-loader')
       .loader('svgo-loader')
-      .tap(options => {
+      .tap(() => {
         return {
           plugins: [
             { removeTitle: true },

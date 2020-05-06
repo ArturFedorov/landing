@@ -115,6 +115,14 @@ export default Vue.extend({
     position: relative;
     z-index: 3;
 
+    &.is-thin {
+      .h2,
+      .p-body-big,
+      .p-body-italic {
+        font-weight: $font-thin;
+      }
+    }
+
     &-wrapper {
       height: 100%;
       position: relative;

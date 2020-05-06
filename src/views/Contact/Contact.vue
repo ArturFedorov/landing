@@ -1,13 +1,14 @@
+<i18n src="./Contact.yml" />
 <template>
   <div class="columns contact">
     <Background
       class="contact-background" />
     <div class="column">
       <Heading>
-        Contact me
+        {{ $t('title') }}
       </Heading>
-      <h2 class="home-header-h2 is-uppercase is-red">
-        Life is better in color
+      <h2 class="is-uppercase is-red">
+        {{ $t('subtitle') }}
       </h2>
     </div>
     <div class="column contact-column is-right">
@@ -16,12 +17,16 @@
         <div>
           <div
             class="contact-content-item"
-            v-for="contact in contacts"
+            v-for="contact in contacts[locale]"
             :key="contact.label">
-            <span class="p-body is-blue">
+            <span
+              class="p-body is-blue"
+              :class="{'is-thin':isRussianLocale}">
               {{contact.label}}
             </span>
-            <span class="p-body-italic is-blue">
+            <span
+              class="p-body-italic is-blue"
+              :class="{'is-thin': isRussianLocale}">
               {{contact.value}}
             </span>
           </div>
@@ -41,15 +46,24 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import {localeMixin} from '@/components/common/mixins/locale.mixin';
 export default Vue.extend({
   name: 'Contact',
+  mixins: [localeMixin],
   data() {
     return {
-      contacts: [
-        { label: 'Phone:', value: '+7 921 965 66 12'},
-        { label: 'Email:', value: 'kes@kab-online.ru'},
-        { label: 'Address:', value: 'Frunzensakya subway, Pionesrkaya subway'}
-      ]
+      contacts: {
+        en: [
+          { label: 'Phone:', value: '+7 921 965 66 12'},
+          { label: 'Email:', value: 'kes@kab-online.ru'},
+          { label: 'Address:', value: 'Frunzensakya subway, Pionesrkaya subway'}
+        ],
+        ru: [
+          { label: 'Телефон:', value: '+7 921 965 66 12'},
+          { label: 'Почта:', value: 'kes@kab-online.ru'},
+          { label: 'Адрес:', value: 'метро Фрунзенская, метро Пионерская'}
+        ]
+      }
     }
   }
 });
@@ -57,6 +71,8 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
   .contact {
+    overflow-x: hidden;
+
     &-background {
       position: fixed;
       transform: rotate(-90deg);
@@ -64,7 +80,7 @@ export default Vue.extend({
       z-index: 2;
 
       @media ($mobile) {
-        right: -640px;
+        right: -690px;
       }
     }
 
@@ -73,6 +89,8 @@ export default Vue.extend({
       flex-direction: column;
       justify-content: center;
       height: 100%;
+      position: relative;
+      z-index: 2;
 
       @media ($mobile) {
         justify-content: flex-start;
@@ -86,7 +104,6 @@ export default Vue.extend({
 
     &-column {
       &.is-right {
-        background-color: $pink;
         position: relative;
         background-color: $white;
       }

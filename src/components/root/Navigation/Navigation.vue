@@ -3,16 +3,16 @@
     <div
       class="navigation-item"
       :class="isEven(index) ? '' : 'is-centered'"
-      v-for="(link, index) in links"
+      v-for="(link, index) in links[locale]"
       :key="link.text">
       <p class="p-body-italic navigation-item-counter">
         {{ `0${ index +1 }`}}
       </p>
       <router-link
         :to="link.url"
-        class="navigation-item-link">
+        class="navigation-item-link is-blue">
         <h1
-          class="navigation-item-text is-uppercase is-red">
+          class="navigation-item-text is-uppercase">
           {{ link.text }}
         </h1>
       </router-link>
@@ -23,30 +23,44 @@
 <script lang="ts">
 import Vue from 'vue';
 import {AnimationService} from '@/shared/services/animation.service';
+import {localeMixin} from '@/components/common/mixins/locale.mixin';
 export default Vue.extend({
+  mixins: [localeMixin],
   data() {
     return {
-      links: [
-        { text: 'elena krasnenko', url: '/'},
-        { text: 'about me', url: '/about'},
-        { text: 'diplomas', url: '/diplomas'},
-        { text: 'reviews', url: '/reviews' },
-        { text: 'contact', url: '/contact'}
-      ]
+      links: {
+        en: [
+          { text: 'elena krasnenko', url: '/'},
+          { text: 'about me', url: '/about'},
+          { text: 'diplomas', url: '/diplomas'},
+          { text: 'reviews', url: '/reviews' },
+          { text: 'contact', url: '/contact'}
+        ],
+        ru: [
+          { text: 'елена красненко', url: '/'},
+          { text: 'обо мне', url: '/about'},
+          { text: 'дипломы', url: '/diplomas'},
+          { text: 'отзывы', url: '/reviews' },
+          { text: 'контакты', url: '/contact'}
+        ]
+      }
     }
   },
   mounted(): void {
     AnimationService.gsap.timeline({defaults: { duration: 1.5}})
-      .from('.navigation-item', {
+      .fromTo('.navigation-item-link', {
         duration: 1,
         opacity: 0,
+        color: '#FF0092',
         x: -20,
         stagger: 0.1,
-      }).to('.navigation-item-text', {
-        delay: -1.2,
+      }, {
         color: '#0455BF',
-        stagger: 0.2
+        stagger: 0.2,
+        x: 0,
+        opacity: 1
       })
+
   },
   methods: {
     isEven(index: number): boolean {
