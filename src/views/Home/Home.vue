@@ -29,8 +29,7 @@ export default Vue.extend({
     AnimationService.timeLine({duration: 1.5})
       .from('.home-content-image', {
         delay: this.showLoader ? 0 : 6,
-        opacity: 0,
-        scale: 1.05
+        opacity: 0
       }).from('.home-header-h2', {
         y: 10,
         opacity: 0,
