@@ -5,7 +5,8 @@
         class="slider-item"
         v-for="(slider, index) in slides"
         :key="slider.id"
-        :class="[nextIndexClass(index), { 'is-actual' : (index === activeIndex)}]">
+        :class="[nextIndexClass(index), { 'is-actual' : (index === activeIndex)}]"
+        @click="selectSlide(slider)">
         <h2
           class="h2 slider-item-header is-blue"
           v-if="slider.name">
@@ -101,6 +102,9 @@ export default Vue.extend({
     nextIndexClass(index: number): string {
       const lastIndex = this.activeIndex === this.slides.length-1 && index === 0;
       return ((index === this.activeIndex + 1) || lastIndex) ? 'is-next' : '';
+    },
+    selectSlide(slider: { name: string; text: string; date: string; }) {
+      this.$emit('select-slide', slider);
     }
   }
 });
