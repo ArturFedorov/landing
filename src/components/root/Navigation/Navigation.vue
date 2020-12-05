@@ -33,7 +33,7 @@ export default Vue.extend({
           { text: 'elena krasnenko', url: '/'},
           { text: 'about me', url: '/about'},
           { text: 'diplomas', url: '/diplomas'},
-          { text: 'reviews', url: '/reviews' },
+          // { text: 'reviews', url: '/reviews' },
           { text: 'contact', url: '/contact'}
         ],
         ru: [

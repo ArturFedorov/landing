@@ -118,6 +118,7 @@ export default Vue.extend({
     height: 100%;
     position: relative;
     z-index: 3;
+    max-width: 500px;
 
     &.is-thin {
       .h2,
@@ -140,6 +141,7 @@ export default Vue.extend({
     }
 
     &-item {
+      cursor: pointer;
       width: 100%;
       position: absolute;
       top: 0;

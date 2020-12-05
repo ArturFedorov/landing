@@ -24,11 +24,30 @@
               :class="{'is-thin':isRussianLocale}">
               {{contact.label}}
             </span>
-            <span
-              class="p-body-italic is-blue"
-              :class="{'is-thin': isRussianLocale}">
+            <a
+              v-if="contact.isPhone"
+              :href="`tel:${contact.value}`">
+              <span
+                class="p-body-italic is-blue"
+                :class="{'is-thin': isRussianLocale}">
               {{contact.value}}
             </span>
+            </a>
+            <a
+              v-else-if="contact.isEmail"
+              :href="`mailto:${contact.value}`">
+              <span
+                  class="p-body-italic is-blue"
+                  :class="{'is-thin': isRussianLocale}">
+                {{contact.value}}
+              </span>
+            </a>
+            <span
+              v-else
+              class="p-body-italic is-blue"
+              :class="{'is-thin': isRussianLocale}">
+                {{contact.value}}
+              </span>
           </div>
         </div>
         <p>
@@ -39,7 +58,6 @@
             name="ek" />
         </p>
       </div>
-      <ImageCover class="contact-image"/>
     </div>
   </div>
 </template>
@@ -54,13 +72,13 @@ export default Vue.extend({
     return {
       contacts: {
         en: [
-          { label: 'Phone:', value: '+7 921 965 66 12'},
-          { label: 'Email:', value: 'kes@kab-online.ru'},
+          { label: 'Phone:', value: '+7 921 965 66 12', isPhone: true},
+          { label: 'Email:', value: 'kes@kab-online.ru', isEmail: true},
           { label: 'Address:', value: 'Frunzensakya subway, Pionesrkaya subway'}
         ],
         ru: [
-          { label: 'Телефон:', value: '+7 921 965 66 12'},
-          { label: 'Почта:', value: 'kes@kab-online.ru'},
+          { label: 'Телефон:', value: '+7 921 965 66 12', isPhone: true},
+          { label: 'Почта:', value: 'kes@kab-online.ru', isEmail: true},
           { label: 'Адрес:', value: 'метро Фрунзенская, метро Пионерская'}
         ]
       }

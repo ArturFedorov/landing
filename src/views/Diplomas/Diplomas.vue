@@ -12,11 +12,11 @@
       </Heading>
     </div>
     <div class="column is-right">
-        <Slider
-          class="diplomas-section-content"
-          :class="{'is-thin': isRussianLocale}"
-          :slides="diplomas[locale]"
-          @select-slide ="onSlideSelected"/>
+      <Slider
+        class="diplomas-section-content"
+        :class="{'is-thin': isRussianLocale}"
+        :slides="diplomas[locale]"
+        @select-slide ="onSlideSelected"/>
     </div>
   </div>
 </template>
@@ -34,7 +34,6 @@ export default Vue.extend({
   mixins: [localeMixin],
   data() {
     return {
-      activeIndex: 0,
       activeImage: '',
       diplomas: {
         en: [

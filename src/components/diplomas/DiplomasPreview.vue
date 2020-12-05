@@ -35,6 +35,10 @@ export default Vue.extend({
 
     &-image {
       width: 50%;
+
+      @media ($mobile) {
+        width: 90%;
+      }
     }
   }
 </style>
