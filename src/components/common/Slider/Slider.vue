@@ -1,3 +1,4 @@
+<i18n src="./Slider.yml" />
 <template>
   <div class="slider">
     <div class="slider-wrapper">
@@ -5,8 +6,7 @@
         class="slider-item"
         v-for="(slider, index) in slides"
         :key="slider.id"
-        :class="[nextIndexClass(index), { 'is-actual' : (index === activeIndex)}]"
-        @click="selectSlide(slider)">
+        :class="[nextIndexClass(index), { 'is-actual' : (index === activeIndex)}]">
         <h2
           class="h2 slider-item-header is-blue"
           v-if="slider.name">
@@ -20,6 +20,12 @@
     </div>
     <div class="slider-links">
       <p class="p-body-italic is-blue">{{`${this.activeIndex + 1 }/${this.slides.length}`}}</p>
+      <a
+        v-if="withButton"
+        class="p-body-italic is-small is-blue is-link"
+        @click="selectSlide(activeIndex)">
+        {{ $t('button') }}
+      </a>
       <a
         class="slider-link"
         @click="animate">
@@ -51,6 +57,10 @@ export default Vue.extend({
     rotationAngles: {
       type: Object as () => { x: number , y: number, z: number},
       default: () => ({ x: -10, y: 10, z: -90})
+    },
+    withButton: {
+      type: Boolean,
+      default: true
     }
   },
   mounted(): void {
@@ -103,8 +113,8 @@ export default Vue.extend({
       const lastIndex = this.activeIndex === this.slides.length-1 && index === 0;
       return ((index === this.activeIndex + 1) || lastIndex) ? 'is-next' : '';
     },
-    selectSlide(slider: { name: string; text: string; date: string; }) {
-      this.$emit('select-slide', slider);
+    selectSlide(sliderIndex: number) {
+      this.$emit('select-slide', this.slides[sliderIndex]);
     }
   }
 });
@@ -125,6 +135,7 @@ export default Vue.extend({
       .p-body-big,
       .p-body-italic {
         font-weight: $font-thin;
+        font-size: $font-size-small;
       }
     }
 

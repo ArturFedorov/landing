@@ -47,6 +47,10 @@ h2 {
   &.is-thin {
     font-weight: $font-thin;
   }
+
+  &.is-small {
+    font-size: $font-size-small;
+  }
 }
 
 .caption {
@@ -79,4 +83,9 @@ span.is-blue {
 
 .is-uppercase {
   text-transform: uppercase;
+}
+
+.is-link {
+  text-decoration: underline;
+  cursor: pointer;
 }
