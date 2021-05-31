@@ -26,6 +26,36 @@
             :class="{'is-thin': isRussianLocale}">
             {{ $t('text3') }}
           </p>
+          <div
+            v-if="locale === 'ru'"
+            class="p-body is-blue"
+            :class="{'is-thin': isRussianLocale}">
+            <ul>
+              <li class="is-blue">
+                В сложностях построении межличностных отношений (с партнером,
+                коллегой, другом).
+              </li>
+              <li class="is-blue">В детско-родительских отношениях (отделение).</li>
+              <li class="is-blue">
+                В психологической помощи при разводе, кризисах супружеских пар,
+                сложностях в общении с партнером.
+              </li>
+              <li class="is-blue">В сопровождении переживания горя, утраты близкого человека.</li>
+              <li class="is-blue">
+                В помощи переживания жизненных кризисов, потери смысла жизни и
+                приоритетов, в сложностях при постановке целей и планов на будущее.
+              </li>
+              <li class="is-blue">В неуверенности в себе, низкой самооценки, неумении говорить «нет».</li>
+              <li class="is-blue">
+                Эмоциональных проблем (неосознанности собственных чувств, сложность в
+                выражении эмоций).
+              </li>
+              <li class="is-blue">В проработке своих страхов и фобий.</li>
+              <li class="is-blue">В проработке апатии и угнетенного состояния.</li>
+              <li class="is-blue">В стрессовых и посттравматичных переживаниях.</li>
+              <li class="is-blue">При депрессиях, панических атаках, тревожных состояниях.</li>
+            </ul>
+          </div>
           <p
             class="p-body is-blue"
             :class="{'is-thin': isRussianLocale}">
@@ -70,6 +100,10 @@ export default Vue.extend({
     padding: 0 4em;
     position: relative;
 
+    @media ($mobile) {
+      padding: 0 2em;
+    }
+
     &-background {
       position: fixed;
       transform: rotate(-90deg);
@@ -105,6 +139,10 @@ export default Vue.extend({
       &-content {
         max-width: 70%;
         margin-top: 8em;
+        height: 100vh;
+        overflow-y: auto;
+        padding-right: $building-unit-x2;
+        padding-bottom: 200px;
 
         @media ($mobile) {
           max-width: 100%;

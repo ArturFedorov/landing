@@ -167,6 +167,10 @@ export default Vue.extend({
       box-sizing: border-box;
       justify-content: space-between;
       box-shadow: 0 5px 10px $pink;
+
+      @media ($mobile) {
+        padding: 2em;
+      }
     }
 
     &-link {

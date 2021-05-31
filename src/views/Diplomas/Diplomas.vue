@@ -43,7 +43,7 @@ export default Vue.extend({
           { id: 4, name: 'Gestalt certificate', text: 'Window in Gestalt', date: '11.10.14 - 12.10.2014', url: 'cert3.jpg'}
         ],
         ru: [
-          { id: 1, name: 'Диплом психолога', text: 'Теория и практика гештальт-терапии', date: '01.09.2000 - 24.06.2005', url: 'dip1.jpg'},
+          { id: 1, name: 'Диплом психолога', text: 'Санкт-петербургский городской университет', date: '01.09.2000 - 24.06.2005', url: 'dip1.jpg'},
           { id: 2, name: 'Московский гештальт-институт', text: 'Теория и практика гештальт-терапии', date: '20.08.2008 - 29.09.2013', url: 'cert1.jpg'},
           { id: 3, name: 'Сертификат участия', text: 'Окно в Гештальт 2011', date: '15.10.11 - 16.10.2011', url: 'cert2.jpg'},
           { id: 4, name: 'Сертификат участия', text: 'Окно в Гештальт 2014', date: '11.10.14 - 12.10.2014', url: 'cert3.jpg'}
@@ -62,6 +62,10 @@ export default Vue.extend({
 <style lang="scss" scoped>
   .diplomas {
     height: 100vh;
+
+    @media($mobile) {
+      overflow-y: auto;
+    }
 
     &-background {
       position: fixed;
