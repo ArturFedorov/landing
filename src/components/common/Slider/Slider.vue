@@ -161,6 +161,7 @@ export default Vue.extend({
       display: flex;
       flex-direction: column;
       height: 100%;
+      overflow-y: auto;
       transform-origin: top right;
       z-index: 1;
       background-color: $pink;
